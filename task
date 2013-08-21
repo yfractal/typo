@@ -9,7 +9,6 @@ kqmx0FH
 local
 2kGjILT
 
-
 On Time 
 Typo
   should respond to a simple request [0 points]
@@ -44,6 +43,7 @@ Failures:
      # ./lib/graders/rspec_grader/heroku_rspec_grader.rb:11:in `grade!'
      # lib/graders/rspec_grader/hw5_grader.rb:13:in `grade!'
      # ./grade5:37:in `<main>'
+
 
   2) The article merge feature should create a single merged article [15 points]
      Failure/Error: page.links_with(:text => /\[CS169 Autograder\]/).size.should == 1

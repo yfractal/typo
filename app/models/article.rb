@@ -487,11 +487,12 @@ class Article < Content
       comments << c.clone
     end
 
-    # raise comments.inspect
+    merge_a.delete
     if comments == []
       a = Article.create!(:author => author,:body => body,:title => merge_a.title)
     else
       a = Article.create!(:author => author,:body => body,:title => merge_a.title,:comments => comments)
     end
+
   end
 end
