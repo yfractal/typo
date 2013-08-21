@@ -9,6 +9,6 @@
 </h3>
  <%= form_tag "/admin/content/merge_with/#{@article.id}",:method =>"post",:id =>"merge_with" %>
  	<%=label :merge_with,"Article Id"%>
- 	<%=text_field  :content,:merge_with_id %>
+ 	<%=text_field  :content,:merge_with_id,:id=>"merge_with" %>
  	</br>
  <%= submit_tag "Merge" %>
