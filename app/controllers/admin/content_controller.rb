@@ -3,8 +3,15 @@ require 'base64'
 module Admin; end
 class Admin::ContentController < Admin::BaseController
   layout "administration", :except => [:show, :autosave]
+  before_filter :admin_user?,:only => [:merge_with]
 
   cache_sweeper :blog_sweeper
+  def admin_user?
+    if not User.admin_user?(session[:user_id])
+      redirect_to "/admin/content/edit/#{params[:id]}" and return 
+    end
+  end
+
   def merge_with
     @article = Article.merge_with(params[:id],params[:merge_with].to_i)
     if @article.short_url== nil
@@ -14,6 +21,10 @@ class Admin::ContentController < Admin::BaseController
     end
   end
 
+  def self.admin_user?
+    u = User.find(session[user_id])
+    u.profile.label == "admin"
+  end
 
   def auto_complete_for_article_keywords
     @items = Tag.find_with_char params[:article][:keywords].strip

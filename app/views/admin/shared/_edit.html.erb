@@ -2,14 +2,16 @@
 <%= form_tag(form_action, :id => "#{form_type}_form", :enctype => "multipart/form-data", :class => className) do %>
 
   <%= render :partial => "form" %>
-
 <% end %>
-<h3>
-	Merge Articles
-</h3>
- <%= form_tag "/admin/content/merge_with/#{@article.id}",:method =>"post",:id =>"merge_with" ,:name => "merge_with" %>
- 	<%=label :merge_with,"Article Id"%>
- 	<input type="text" name="merge_with" >
- 	<!-- <%=text_field  :content,:merge_with_id ,:name =>"merge_with" %> -->
- 	</br>
- <%= submit_tag "Merge" %>
+
+<% if User.admin_user?(session[:user_id]) %>
+	<h3>
+		Merge Articles
+	</h3>
+	 <%= form_tag "/admin/content/merge_with/#{@article.id}",:method =>"post",:id =>"merge_with" ,:name => "merge_with" %>
+	 	<%=label :merge_with,"Article Id"%>
+	 	<input type="text" name="merge_with" >
+	 	<!-- <%=text_field  :content,:merge_with_id ,:name =>"merge_with" %> -->
+	 	</br>
+	 <%= submit_tag "Merge" %>
+<% end %>	 

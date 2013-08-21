@@ -13,6 +13,7 @@ class Article < Content
   validates_uniqueness_of :guid
   validates_presence_of :title
 
+  
   belongs_to :user
 
   has_many :pings,      :dependent => :destroy, :order => "created_at ASC"

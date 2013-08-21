@@ -55,6 +55,12 @@ class User < ActiveRecord::Base
   end
 
 
+  def self.admin_user?(id)
+# !!    # rewrite tomorrow
+    user = User.find(id)
+    user.profile.label == "admin"
+  end
+
   def self.authenticate(login, pass)
     find(:first,
          :conditions => ["login = ? AND password = ? AND state = ?", login, password_hash(pass), 'active'])
