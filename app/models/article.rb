@@ -51,7 +51,7 @@ class Article < Content
   after_save :post_trigger, :keywords_to_tags, :shorten_url
 
   scope :category, lambda {|category_id| {:conditions => ['categorizations.category_id = ?', category_id], :include => 'categorizations'}}
-  scope :drafts, lambda { { :conditions => { :state => 'draft' }, :order => 'created_at DESC' } }
+  scope :drafts, lambda { { :conditions => { :state => 'draft' }, :order => '`d_at DESC' } }
   scope :without_parent, {:conditions => {:parent_id => nil}}
   scope :child_of, lambda { |article_id| {:conditions => {:parent_id => article_id}} }
   scope :published, lambda { { :conditions => { :published => true, :published_at => Time.at(0)..Time.now }, :order => 'published_at DESC' } }
@@ -465,5 +465,25 @@ class Article < Content
     to = from + 1.day unless day.blank?
     to = to - 1 # pull off 1 second so we don't overlap onto the next day
     return from..to
+  end
+
+  def self.merge_with(merge_id,merged_id)
+    merge_a = Article.find(merge_id)
+    merge_with_a = Article.find(merged_id)
+    author = merge_a.author
+    body = merge_a.body + "\n" + merge_with_a.body
+    body = merge_a.body.to_s + "\n" +  merge_with_a.body
+    
+    comments = []
+
+    merge_a.comments.each do |c|
+      comments << c.clone
+    end
+
+    merge_with_a.comments.each do |c|
+      comments << c.clone
+    end
+
+    a = Article.create!(:author => author,:body => body,:title => merge_a.title,:comments => comments )
   end
 end

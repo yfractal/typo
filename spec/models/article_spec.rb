@@ -630,5 +630,28 @@ describe Article do
     end
 
   end
+
+  describe "#merge_with" do 
+    it " merge with another article is " do 
+      @a1 = Factory.create(:article,:title=> "a1",:body => "b1")
+      @a2 = Factory.create(:article,:title=> "a2",:body => "b2")
+      @c1 = Factory.create(:comment,:title => "c1")
+      @c2 = Factory.create(:comment,:title => "c2")
+      @c1.article = @a1
+      @c1.save!
+      @c2.article = @a2
+      @c2.save!
+
+      r = Article.merge_with(@a1.id,@a2.id)
+      r.title.should == @a1.title
+      r.body.should =~ /b1/
+      r.body.should =~ /b2/
+      r.author.should == @a1.author
+      # should be replace
+      r.comments[0].title.should == "c1"
+      r.comments[1].title.should == "c2"
+
+    end
+  end
 end
 

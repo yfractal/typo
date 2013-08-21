@@ -4,3 +4,11 @@
   <%= render :partial => "form" %>
 
 <% end %>
+<h3>
+	Merge Articles
+</h3>
+ <%= form_tag "/admin/content/merge_with/#{@article.id}",:method =>"post",:id =>"merge_with" %>
+ 	<%=label :merge_with,"Article Id"%>
+ 	<%=text_field  :content,:merge_with_id %>
+ 	</br>
+ <%= submit_tag "Merge" %>

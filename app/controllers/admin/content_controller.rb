@@ -5,6 +5,11 @@ class Admin::ContentController < Admin::BaseController
   layout "administration", :except => [:show, :autosave]
 
   cache_sweeper :blog_sweeper
+  def merge_with
+    @article = Article.merge_with(params[:id],params[:content][:merge_with_id])
+    redirect_to @article.short_url
+  end
+
 
   def auto_complete_for_article_keywords
     @items = Tag.find_with_char params[:article][:keywords].strip
@@ -20,7 +25,7 @@ class Admin::ContentController < Admin::BaseController
       render :partial => 'article_list', :locals => { :articles => @articles }
     else
       @article = Article.new(params[:article])
-    end
+  p  end
   end
 
   def new
