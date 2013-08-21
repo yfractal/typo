@@ -486,13 +486,16 @@ class Article < Content
     merge_with_a.comments.each do |c|
       comments << c.clone
     end
-
+    
+    a = merge_a.clone
+    a.body = body
+    a.published = true
+    a.published_at = DateTime.strptime(params[:article][:published_at], "%B %e, %Y %I:%M %p GMT%z").utc rescue Time.parse(params[:article][:published_at]).utc rescue nil
     merge_a.delete
-    if comments == []
-      a = Article.create!(:author => author,:body => body,:title => merge_a.title)
-    else
-      a = Article.create!(:author => author,:body => body,:title => merge_a.title,:comments => comments)
+    if comments != []
+      a.coments = coments
     end
-
+    a.save
+    return a
   end
 end
