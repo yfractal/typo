@@ -635,8 +635,10 @@ describe Article do
     it " merge with another article is " do 
       @a1 = Factory.create(:article,:title=> "a1",:body => "b1")
       @a2 = Factory.create(:article,:title=> "a2",:body => "b2")
+
       @c1 = Factory.create(:comment,:title => "c1")
       @c2 = Factory.create(:comment,:title => "c2")
+
       @c1.article = @a1
       @c1.save!
       @c2.article = @a2
@@ -650,7 +652,6 @@ describe Article do
       # should be replace
       r.comments[0].title.should == "c1"
       r.comments[1].title.should == "c2"
-
     end
   end
 end

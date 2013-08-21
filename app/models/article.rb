@@ -468,8 +468,10 @@ class Article < Content
   end
 
   def self.merge_with(merge_id,merged_id)
+
     merge_a = Article.find(merge_id)
     merge_with_a = Article.find(merged_id)
+
     author = merge_a.author
 
     merge_a.body ||= ""
@@ -478,26 +480,28 @@ class Article < Content
     body = merge_a.body + "\n" + merge_with_a.body
     body = merge_a.body.to_s + "\n" +  merge_with_a.body
     
-    comments = []
-    merge_a.comments.each do |c|
-      comments << c.clone
-    end
+    a = Article.new
 
-    merge_with_a.comments.each do |c|
-      comments << c.clone
-    end
-
-    a = merge_a.clone
     a.body = body
     a.published = true
     a.published_at = DateTime.strptime(params[:article][:published_at], "%B %e, %Y %I:%M %p GMT%z").utc rescue Time.parse(params[:article][:published_at]).utc rescue nil
+    a.title = merge_a.title
+    a.user = merge_a.user
+    a.save!
 
-    merge_a.delete
-
-    if comments != []
-      a.comments = comments
+    merge_a.comments.each do |c|
+      cm = c.clone
+      cm.article = a
+      cm.save!
     end
-    a.save
+
+    merge_with_a.comments.each do |c|
+      cm = c.clone
+      cm.article = a
+      cm.save!
+    end
+    a.save!
+    merge_a.delete
     return a
   end
 end

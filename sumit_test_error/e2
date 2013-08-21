@@ -1,0 +1,358 @@
+1) The article merge feature should create a single merged article [15 points]
+    Failure/Error: page.links_with(:text => /\[CS169 Autograder\]/).size.should == 1
+      expected: 1
+           got: 2 (using ==)
+    # /tmp/rspec20130821-21936-9qchaj.rb:272:in `block (2 levels) in <top (required)>'
+    # /tmp/rspec20130821-21936-9qchaj.rb:9:in `block (3 levels) in <top (required)>'
+    # /tmp/rspec20130821-21936-9qchaj.rb:8:in `block (2 levels) in <top (required)>'
+    # lib/graders/rspec_grader/rspec_sandbox.rb:9:in `block (3 levels) in <top (required)>'
+    # lib/graders/rspec_grader/rspec_sandbox.rb:8:in `block (2 levels) in <top (required)>'
+    # lib/graders/rspec_grader/rspec_runner.rb:42:in `block in run_rspec'
+    # lib/graders/rspec_grader/rspec_runner.rb:33:in `run_rspec'
+    # lib/graders/rspec_grader/rspec_runner.rb:24:in `run'
+    # lib/graders/rspec_grader/weighted_rspec_grader.rb:6:in `grade!'
+    # ./lib/graders/rspec_grader/heroku_rspec_grader.rb:11:in `grade!'
+    # lib/graders/rspec_grader/hw5_grader.rb:13:in `grade!'
+    # ./grade5:37:in `<main>'
+
+ 2) The article merge feature should create an article with the text of both original articles [20 points]
+    Failure/Error: page.body.should include 'Derp derp derp derp 12344321'
+      expected "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n  \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />\n  <title>169yfractal \xE2\x80\x93 content</title>\n  <meta http-equiv=\"imagetoolbar\" content=\"no\" />\n  <link href=\"/stylesheets/growler.css?1377080279\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />\n<link href=\"/stylesheets/bootstrap.css?1377080279\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />\n<link href=\"/stylesheets/administration_structure.css?1377080279\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />\n<link href=\"/stylesheets/lightbox.css?1377080279\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />\n  <script src=\"/javascripts/prototype.js?1377080279\" type=\"text/javascript\"></script>\n<script src=\"/javascripts/effects.js?1377080279\" type=\"text/javascript\"></script>\n<script src=\"/javascripts/builder.js?1377080279\" type=\"text/javascript\"></script>\n<script src=\"/javascripts/dragdrop.js?1377080279\" type=\"text/javascript\"></script>\n<script src=\"/javascripts/controls.js?1377080279\" type=\"text/javascript\"></script>\n<script src=\"/javascripts/typo.js?1377080279\" type=\"text/javascript\"></script>\n<script src=\"/javascripts/lightbox.js?1377080279\" type=\"text/javascript\"></script>\n<script src=\"/javascripts/growler.js?1377080279\" type=\"text/javascript\"></script>\n<script src=\"/javascripts/typo_carousel.js?1377080279\" type=\"text/javascript\"></script>\n<script src=\"/javascripts/administration.js?1377080279\" type=\"text/javascript\"></script>\n<script src=\"/javascripts/ckeditor/ckeditor.js?1377080279\" type=\"text/javascript\"></script>\n  <script src=\"/javascripts/calendar_date_select/calendar_date_select.js?1377080279\" type=\"text/javascript\"></script>\n<link href=\"/stylesheets/calendar_date_select/default.css?1377080279\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />\n\n  <style type=\"text/css\">\n    #carousel-content .slide { width: 125; }\n  </style>\n</head>\n<body>\n  <div class='topbar'>\n    <div class='topbar-inner'>\n      <div class='container-fluid'>\n        <a href=\"http://dry-fortress-6025.herokuapp.com\" class=\"brand\">169yfractal</a>\n        <ul class=\"nav secondary-nav\">\n          <li class=\"dropdown\" onmouseover='$(\"user_menu\").style.display = \"block\"' onmouseout='$(\"user_menu\").style.display = \"none\"'>\n            <a class=\"dropdown-toggle\" href=\"#\">Logged in as </a>\n            <ul class=\"dropdown-menu\" id=\"user_menu\" style='display: none'>\n              <li><a href=\"/admin/content/new\">New Article</a></li>\n              <li><a href=\"/admin/profiles\">Profile</a></li>\n              <li><a href=\"/accounts/logout\">Log out &raquo;</a></li>\n            </ul>\n          </li>\n        </ul>\n        <ul class=\"nav secondary-nav\">\n          <li class=\"dropdown\" onmouseover='$(\"help_menu\").style.display = \"block\"' onmouseout='$(\"help_menu\").style.display = \"none\"'>\n            <a class=\"dropdown-toggle\" href=\"#\">Help</a>\n            <ul class=\"dropdown-menu\" id=\"help_menu\" style=\"display: none;\">\n              <li><a href=\"https://github.com/fdv/typo/wiki\">Documentation</a></li>\n              <li><a href=\"https://github.com/fdv/typo/issues\">Report a bug</a></li>\n              <li><a href=\"https://github.com/fdv/typo/wiki/In-Page-Plugins\">In page plugins</a></li>\n              <li><a href=\"https://github.com/fdv/typo/wiki/Sidebar-plugins\">Sidebar plugins</a></li>\n            </ul>\n          </li>\n        </ul>\n\t\t\t\t\n      </div>\n    </div>\n  </div>\n  <div class='container-fluid'>\n    <div class='sidebar'>\n      <div class='well'>\n        <h5><a href=\"/admin\">Dashboard</a></h5>\n        <h5 class=\"active\"><a href=\"/admin/content\">Articles</a></h5>\n        <ul id='subtabs'>\n          <li><a href=\"/admin/content\">All Articles</a></li>\n<li><a href=\"/admin/content/new\">New Article</a></li>\n<li><a href=\"/admin/feedback\">Comments</a></li>\n<li><a href=\"/admin/categories/new\">Categories</a></li>\n<li><a href=\"/admin/tags\">Tags</a></li>\n<li><a href=\"/admin/post_types/new\">Article Types</a></li>\n<li><a href=\"/admin/redirects\">Redirects</a></li>\n        </ul>\n        <h5 class=\"\"><a href=\"/admin/pages\">Pages</a></h5>\n        <ul id='subtabs'>\n          <li><a href=\"/admin/pages\">All Pages</a></li>\n<li><a href=\"/admin/pages/new\">New Page</a></li>\n        </ul>\n        <h5 class=\"\"><a href=\"/admin/resources\">Media Library</a></h5>\n        <ul id='subtabs'>\n          \n        </ul>\n        <h5 class=\"\"><a href=\"/admin/themes\">Design</a></h5>\n        <ul id='subtabs'>\n          <li><a href=\"/admin/themes\">Choose theme</a></li>\n<li><a href=\"/admin/sidebar\">Customize sidebar</a></li>\n        </ul>\n        <h5 class=\"\"><a href=\"/admin/settings\">Settings</a></h5>\n        <ul id='subtabs'>\n          <li><a href=\"/admin/settings/write\">Write</a></li>\n<li><a href=\"/admin/settings/feedback\">Feedback</a></li>\n<li><a href=\"/admin/cache\">Cache</a></li>\n<li><a href=\"/admin/users\">Users</a></li>\n<li><a href=\"/admin/settings/errors\">Error messages</a></li>\n        </ul>\n        <h5 class=\"\"><a href=\"/admin/seo\">SEO</a></h5>\n        <ul id='subtabs'>\n          <li><a href=\"/admin/seo\">Global SEO settings</a></li>\n<li><a href=\"/admin/seo/permalinks\">Permalinks</a></li>\n<li><a href=\"/admin/seo/titles\">Titles</a></li>\n        </ul>\n      </div>\n    </div>\n    <div class='content'>\n      <div class=''>\n        \n        <div class='page-header'><h2>New article</h2></div>\n        \n<form accept-charset=\"UTF-8\" action=\"/admin/content/new/156\" class=\"autosave\" enctype=\"multipart/form-data\" id=\"article_form\" method=\"post\"><div style=\"margin:0;padding:0;display:inline\"><input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><input name=\"authenticity_token\" type=\"hidden\" value=\"8NTFrJATsniGQZ/cti1SiB/pW7gWuEfH2XxBaUK5pok=\" /></div>\n\n  <input type=\"hidden\" name=\"current_editor\" id=\"current_editor\" value=\"visual\" />\n<input type=\"hidden\" name=\"user_textfilter\" id=\"user_textfilter\" value=\"none\" />\n<div id=\"autosave\"></div>\n<div id=\"article_keywords_auto_complete\" class=\"auto_complete\"></div>\n\n\n\n<div class='editor-right'>\n  <div class='well'>\n    <h4>Publish settings</h4>\n    <div class='actions'>\n      <a href=\"/admin/content/destroy/156\" class=\"btn danger\" data-confirm=\"Are you sure?\" data-method=\"post\" rel=\"nofollow\" title=\"Delete content\">delete</a>\n\t  <span id='destroy_link'></span>\n      <span id='preview_link'><a href=\"/previews/156\" class=\"btn info\" target=\"new\">Preview</a></span>\n    </div>\n    <div class='clearfix'>\n        Status: <strong>published</strong> <a href=\"#\" onclick=\"Element.toggle('status'); return false\">Change</a>\n      <ul class='inputs-list'>\n        <li id='status' style='display: none;'>        \n          <label for=\"article_published\">\n            <input name=\"article[published]\" type=\"hidden\" value=\"0\" /><input checked=\"checked\" id=\"article_published\" name=\"article[published]\" type=\"checkbox\" value=\"1\" />\n            Published\n          </label>\n        </li>\n      </ul>\n    </div>\n    <div class='clearfix'>\n      Comments are <strong>enabled</strong> and trackbacks are <strong>disabled</strong> <a href=\"#\" onclick=\"Element.toggle('conversation'); return false\">Change</a>\n      <ul class='inputs-list' id='conversation' style='display: none'>\n        <li>\n          <label for=\"article_allow_pings\">\n            <input name=\"article[allow_pings]\" type=\"hidden\" value=\"0\" /><input id=\"article_allow_pings\" name=\"article[allow_pings]\" type=\"checkbox\" value=\"1\" />\n            Allow trackbacks\n          </label>\n        </li>\n        <li>\n          <label for=\"article_allow_comments\">\n            <input name=\"article[allow_comments]\" type=\"hidden\" value=\"0\" /><input checked=\"checked\" id=\"article_allow_comments\" name=\"article[allow_comments]\" type=\"checkbox\" value=\"1\" />\n            Allow comments\n          </label>\n        </li>\n      </ul>\n    </div>\n\t  <div class='clearfix'>\n      Publish <strong>now</strong> <a href=\"#\" onclick=\"Element.toggle('publish'); return false\">Change</a>\n      <ul class='inputs-list'>\n        <li id='publish' style='display: none;'>\n          <input class=\"span3\" id=\"article_published_at\" name=\"article[published_at]\" size=\"30\" type=\"text\" value=\"August 21, 2013 10:20 AM GMT+0000 (UTC)\" /> <img alt=\"Calendar\" class=\"calendar_date_select_popup_icon\" onclick=\"new CalendarDateSelect( $(this).previous(), {time:true, year_range:10} );\" src=\"/images/calendar_date_select/calendar.gif?1377080279\" style=\"border:0px; cursor:pointer;\" />\n        </li>\n      </ul>\n    </div>\n    <div class='clearfix'>\n      Visibility: <strong>public</strong> <a href=\"#\" onclick=\"Element.toggle('visibility'); return false\">Change</a>\n      <ul class='inputs-list' id='visibility' style='display: none'>\n        <li>\n          <label for=\"article_password\">Password:\n            <input class=\"span3\" id=\"article_password\" name=\"article[password]\" size=\"30\" type=\"password\" value=\"\" />\n          </label>\n        </li>\n      </ul>\n    </div>\n    <div class='clearfix'>\n      Permalink: <a href=\"#\" onclick=\"Element.toggle('permalink'); return false\">Change</a>\n      <ul class='inputs-list' id='permalink' style='display: none'>\n        <li>\n            <input class=\"span4\" id=\"article_permalink\" name=\"article[permalink]\" size=\"30\" type=\"text\" value=\"cs169-autograder-blag-post-b\" />\n        </li>\n      </ul>\n    </div>\n    <div class='clearfix'>\n      Article filter: <strong>Markdown with SmartyPants</strong> <a href=\"#\" onclick=\"Element.toggle('text_filter'); return false\">Change</a>\n      <ul id='text_filter' class='inputs-list' style='display: none'>\n        <li>\n          <select name=\"article[text_filter]\" id=\"text_filter\">\n            <option value=\"none\">None</option>\n<option value=\"markdown\">Markdown</option>\n<option value=\"smartypants\">SmartyPants</option>\n<option value=\"markdown smartypants\" selected=\"selected\">Markdown with SmartyPants</option>\n<option value=\"textile\">Textile</option>\n<option value=\"none\">None</option>\n<option value=\"markdown\">Markdown</option>\n<option value=\"smartypants\">SmartyPants</option>\n<option value=\"markdown smartypants\" selected=\"selected\">Markdown with SmartyPants</option>\n<option value=\"textile\">Textile</option>\n          </select>\n        </li>\n      </ul>\n    </div>\n\n    <div class='actions'>\n      <input id='save_draft' type=\"submit\" value=\"Save as draft\" name=\"article[draft]\" class='btn info' />\n      <input type=\"submit\" value=\"Publish\" class=\"btn primary\" />\n    </div>\n  </div>\n\n  <div class='well'>\n    <h4>Categories</h4>\n    <ul class='inputs-list'>\n\t<li>\n\t    <label for=\"category_1\"><input id=\"category_1\" name=\"categories[]\" type=\"checkbox\" value=\"1\" />General</label>\n\t</li>\n</ul>\n<a href=\"/admin/categories/new\" class=\"btn info\">New Category</a>\n\n  </div>\n  <input id=\"article_post_type\" name=\"article[post_type]\" type=\"hidden\" value=\"read\" />\n</div>\n\n<div class='editor-left'>\n  <div>\n    <div>\n      <input class=\"span1\" id=\"article_title\" name=\"article[title]\" placeholder=\"Title\" size=\"30\" style=\" width: 99%\" type=\"text\" value=\"[CS169 Autograder] Blag Post B\" />\n    </div>\n\n    \n\n    <div id='editor-menu'>\n\t\t<ul class=\"tabs\">\n\t\t\t<li id=\"f\" class='active'>\n\t\t\t\t<a href=\"#\" onclick=\"new Ajax.Updater(&#x27;visual_editor&#x27;, &#x27;/admin/content/insert_editor?editor=visual&#x27;, {asynchronous:true, evalScripts:true, onLoading:function(request){new Element.show(&#x27;update_spinner_fck&#x27;)}, onSuccess:function(request){new Element.toggle(&#x27;update_spinner_fck&#x27;)}, parameters:&#x27;authenticity_token=&#x27; + encodeURIComponent(&#x27;8NTFrJATsniGQZ/cti1SiB/pW7gWuEfH2XxBaUK5pok=&#x27;)}); return false;\">Visual</a><img alt=\"Spinner-blue\" id=\"update_spinner_fck\" src=\"/images/spinner-blue.gif?1377080279\" style=\"display:none;\" />\n\t\t\t</li>\n\t\t\t<li id=\"s\" class=' '>\n\t\t\t\t<a href=\"#\" onclick=\"new Ajax.Updater(&#x27;simple_editor&#x27;, &#x27;/admin/content/insert_editor?editor=simple&#x27;, {asynchronous:true, evalScripts:true, onLoading:function(request){new Element.show(&#x27;update_spinner_simple&#x27;)}, onSuccess:function(request){new Element.toggle(&#x27;update_spinner_simple&#x27;)}, parameters:&#x27;authenticity_token=&#x27; + encodeURIComponent(&#x27;8NTFrJATsniGQZ/cti1SiB/pW7gWuEfH2XxBaUK5pok=&#x27;)}); return false;\">HTML</a><img alt=\"Spinner-blue\" id=\"update_spinner_simple\" src=\"/images/spinner-blue.gif?1377080279\" style=\"display:none;\" />\n\t\t\t</li>\n\t\t</ul>\n    </div>\n\n    <div id=\"editor\">\n      <div id='quicktags' style='display: none;'>\n        <script type=\"text/javascript\">edToolbar('article_body_and_extended');</script>\n      </div>\n\n      <div id ='visual_editor'  >\n        <textarea id='article__body_and_extended_editor' style='width:100%;height:300px' cols='20' rows='20' class='large' name='article[body_and_extended]'>Lorem ipsum dolor sit amet</textarea>\n<script type=\"text/javascript\">\n//<![CDATA[\nCKEDITOR.replace('article[body_and_extended]', {\n    filebrowserBrowseUrl : '/fm/filemanager',\n    filebrowserUploadUrl : '/ckeditor/upload'\n\n});\n\n//]]>\n</script>\n      </div>\n\n      <div id='simple_editor' class='input_text' style='display: none;' >\n        \n        \n      </div>\n    </div>\n\n\t\t<h4>Tags</h4>\n    <div class='class'>\n      <input autocomplete=\"off\" id=\"article_keywords\" name=\"article[keywords]\" size=\"30\" style=\"width: 100%\" type=\"text\" value=\"\" />\n    </div>\n    <script type=\"text/javascript\">\n//<![CDATA[\nvar article_keywords_auto_completer = new Ajax.Autocompleter('article_keywords', 'article_keywords_auto_complete', '/admin/content/auto_complete_for_article_keywords', {tokens:','})\n//]]>\n</script>\t\t\n  </div>\n\n  <div class='separator'>\n    <h4>Excerpt</h4>\n    <div class=''>\n      <textarea cols=\"40\" height=\"150\" id=\"article_excerpt\" name=\"article[excerpt]\" rows=\"5\" style=\"width: 100%\"></textarea>\n      <span class='help-block'>Excerpts are posts summaries that are shown on your blog homepage only but won\xE2\x80\x99t appear on the post itself</span>\n    </div>\n  </div>\n\n  <div class=''>\n    <h4>Uploads</h4>\n    <p class='help-block'>Uploads will be displayed as attachments in your RSS feed, but won't appear in your articles.</p>\n    <ul id='attachments' class='inputs-list'>\n      <li id=\"attachment_1\">\n  <input id=\"attachments_filename_1\" name=\"attachments[filename_1]\" type=\"file\" />  <a href=\"#\" onclick=\"if (confirm(_(&#x27;Really delete attachment&#x27;) +&#x27; 1?&#x27;)){\nEffect.toggle(&quot;attachment_1&quot;,&#x27;appear&#x27;,{afterFinish:function(obj){Element.remove(obj.element);}});\n}; return false;\">Remove</a></li>\n<li id=\"attachment_add_2\">\n  <a href=\"#\" onclick=\"new Ajax.Request(&#x27;/admin/content/attachment_box_add/2&#x27;, {asynchronous:true, evalScripts:true, parameters:&#x27;authenticity_token=&#x27; + encodeURIComponent(&#x27;8NTFrJATsniGQZ/cti1SiB/pW7gWuEfH2XxBaUK5pok=&#x27;)}); return false;\">Add Another Attachment</a></li>\n\n<li id=\"resources\">\n\n  <h3>You can associate the following resources</h3>\n</li>\n    </ul>\n  </div>    \n  </div>\n\n</div>\n\n\n\n</form><h3>\n\tMerge Articles\n</h3>\n <form accept-charset=\"UTF-8\" action=\"/admin/content/merge_with/156\" id=\"merge_with\" method=\"post\" name=\"merge_with\"><div style=\"margin:0;padding:0;display:inline\"><input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><input name=\"authenticity_token\" type=\"hidden\" value=\"8NTFrJATsniGQZ/cti1SiB/pW7gWuEfH2XxBaUK5pok=\" /></div>\n \t<label for=\"merge_with_Article Id\">Article id</label>\n \t<input type=\"text\" name=\"merge_with\" >\n \t<!-- <input id=\"content_merge_with_id\" name=\"merge_with\" size=\"30\" type=\"text\" /> -->\n \t</br>\n <input name=\"commit\" type=\"submit\" value=\"Merge\" />\n\n      </div>\n    </div>\n  </div>\n\n  <footer>\n    <a href=\"http://dry-fortress-6025.herokuapp.com\">169yfractal</a> is proudly powered by Typo 6.1.0\n  </footer>\n</body>\n</html>\n" to include "Derp derp derp derp 12344321"
+      Diff:
+      @@ -1,2 +1,324 @@
+      -Derp derp derp derp 12344321
+      +<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      +  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+      +<html xmlns="http://www.w3.org/1999/xhtml">
+      +<head>
+      +  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      +  <title>169yfractal – content</title>
+      +  <meta http-equiv="imagetoolbar" content="no" />
+      +  <link href="/stylesheets/growler.css?1377080279" media="screen" rel="stylesheet" type="text/css" />
+      +<link href="/stylesheets/bootstrap.css?1377080279" media="screen" rel="stylesheet" type="text/css" />
+      +<link href="/stylesheets/administration_structure.css?1377080279" media="screen" rel="stylesheet" type="text/css" />
+      +<link href="/stylesheets/lightbox.css?1377080279" media="screen" rel="stylesheet" type="text/css" />
+      +  <script src="/javascripts/prototype.js?1377080279" type="text/javascript"></script>
+      +<script src="/javascripts/effects.js?1377080279" type="text/javascript"></script>
+      +<script src="/javascripts/builder.js?1377080279" type="text/javascript"></script>
+      +<script src="/javascripts/dragdrop.js?1377080279" type="text/javascript"></script>
+      +<script src="/javascripts/controls.js?1377080279" type="text/javascript"></script>
+      +<script src="/javascripts/typo.js?1377080279" type="text/javascript"></script>
+      +<script src="/javascripts/lightbox.js?1377080279" type="text/javascript"></script>
+      +<script src="/javascripts/growler.js?1377080279" type="text/javascript"></script>
+      +<script src="/javascripts/typo_carousel.js?1377080279" type="text/javascript"></script>
+      +<script src="/javascripts/administration.js?1377080279" type="text/javascript"></script>
+      +<script src="/javascripts/ckeditor/ckeditor.js?1377080279" type="text/javascript"></script>
+      +  <script src="/javascripts/calendar_date_select/calendar_date_select.js?1377080279" type="text/javascript"></script>
+      +<link href="/stylesheets/calendar_date_select/default.css?1377080279" media="screen" rel="stylesheet" type="text/css" />
+      +
+      +  <style type="text/css">
+      +    #carousel-content .slide { width: 125; }
+      +  </style>
+      +</head>
+      +<body>
+      +  <div class='topbar'>
+      +    <div class='topbar-inner'>
+      +      <div class='container-fluid'>
+      +        <a href="http://dry-fortress-6025.herokuapp.com" class="brand">169yfractal</a>
+      +        <ul class="nav secondary-nav">
+      +          <li class="dropdown" onmouseover='$("user_menu").style.display = "block"' onmouseout='$("user_menu").style.display = "none"'>
+      +            <a class="dropdown-toggle" href="#">Logged in as </a>
+      +            <ul class="dropdown-menu" id="user_menu" style='display: none'>
+      +              <li><a href="/admin/content/new">New Article</a></li>
+      +              <li><a href="/admin/profiles">Profile</a></li>
+      +              <li><a href="/accounts/logout">Log out &raquo;</a></li>
+      +            </ul>
+      +          </li>
+      +        </ul>
+      +        <ul class="nav secondary-nav">
+      +          <li class="dropdown" onmouseover='$("help_menu").style.display = "block"' onmouseout='$("help_menu").style.display = "none"'>
+      +            <a class="dropdown-toggle" href="#">Help</a>
+      +            <ul class="dropdown-menu" id="help_menu" style="display: none;">
+      +              <li><a href="https://github.com/fdv/typo/wiki">Documentation</a></li>
+      +              <li><a href="https://github.com/fdv/typo/issues">Report a bug</a></li>
+      +              <li><a href="https://github.com/fdv/typo/wiki/In-Page-Plugins">In page plugins</a></li>
+      +              <li><a href="https://github.com/fdv/typo/wiki/Sidebar-plugins">Sidebar plugins</a></li>
+      +            </ul>
+      +          </li>
+      +        </ul>
+      +				
+      +      </div>
+      +    </div>
+      +  </div>
+      +  <div class='container-fluid'>
+      +    <div class='sidebar'>
+      +      <div class='well'>
+      +        <h5><a href="/admin">Dashboard</a></h5>
+      +        <h5 class="active"><a href="/admin/content">Articles</a></h5>
+      +        <ul id='subtabs'>
+      +          <li><a href="/admin/content">All Articles</a></li>
+      +<li><a href="/admin/content/new">New Article</a></li>
+      +<li><a href="/admin/feedback">Comments</a></li>
+      +<li><a href="/admin/categories/new">Categories</a></li>
+      +<li><a href="/admin/tags">Tags</a></li>
+      +<li><a href="/admin/post_types/new">Article Types</a></li>
+      +<li><a href="/admin/redirects">Redirects</a></li>
+      +        </ul>
+      +        <h5 class=""><a href="/admin/pages">Pages</a></h5>
+      +        <ul id='subtabs'>
+      +          <li><a href="/admin/pages">All Pages</a></li>
+      +<li><a href="/admin/pages/new">New Page</a></li>
+      +        </ul>
+      +        <h5 class=""><a href="/admin/resources">Media Library</a></h5>
+      +        <ul id='subtabs'>
+      +          
+      +        </ul>
+      +        <h5 class=""><a href="/admin/themes">Design</a></h5>
+      +        <ul id='subtabs'>
+      +          <li><a href="/admin/themes">Choose theme</a></li>
+      +<li><a href="/admin/sidebar">Customize sidebar</a></li>
+      +        </ul>
+      +        <h5 class=""><a href="/admin/settings">Settings</a></h5>
+      +        <ul id='subtabs'>
+      +          <li><a href="/admin/settings/write">Write</a></li>
+      +<li><a href="/admin/settings/feedback">Feedback</a></li>
+      +<li><a href="/admin/cache">Cache</a></li>
+      +<li><a href="/admin/users">Users</a></li>
+      +<li><a href="/admin/settings/errors">Error messages</a></li>
+      +        </ul>
+      +        <h5 class=""><a href="/admin/seo">SEO</a></h5>
+      +        <ul id='subtabs'>
+      +          <li><a href="/admin/seo">Global SEO settings</a></li>
+      +<li><a href="/admin/seo/permalinks">Permalinks</a></li>
+      +<li><a href="/admin/seo/titles">Titles</a></li>
+      +        </ul>
+      +      </div>
+      +    </div>
+      +    <div class='content'>
+      +      <div class=''>
+      +        
+      +        <div class='page-header'><h2>New article</h2></div>
+      +        
+      +<form accept-charset="UTF-8" action="/admin/content/new/156" class="autosave" enctype="multipart/form-data" id="article_form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="8NTFrJATsniGQZ/cti1SiB/pW7gWuEfH2XxBaUK5pok=" /></div>
+      +
+      +  <input type="hidden" name="current_editor" id="current_editor" value="visual" />
+      +<input type="hidden" name="user_textfilter" id="user_textfilter" value="none" />
+      +<div id="autosave"></div>
+      +<div id="article_keywords_auto_complete" class="auto_complete"></div>
+      +
+      +
+      +
+      +<div class='editor-right'>
+      +  <div class='well'>
+      +    <h4>Publish settings</h4>
+      +    <div class='actions'>
+      +      <a href="/admin/content/destroy/156" class="btn danger" data-confirm="Are you sure?" data-method="post" rel="nofollow" title="Delete content">delete</a>
+      +	  <span id='destroy_link'></span>
+      +      <span id='preview_link'><a href="/previews/156" class="btn info" target="new">Preview</a></span>
+      +    </div>
+      +    <div class='clearfix'>
+      +        Status: <strong>published</strong> <a href="#" onclick="Element.toggle('status'); return false">Change</a>
+      +      <ul class='inputs-list'>
+      +        <li id='status' style='display: none;'>        
+      +          <label for="article_published">
+      +            <input name="article[published]" type="hidden" value="0" /><input checked="checked" id="article_published" name="article[published]" type="checkbox" value="1" />
+      +            Published
+      +          </label>
+      +        </li>
+      +      </ul>
+      +    </div>
+      +    <div class='clearfix'>
+      +      Comments are <strong>enabled</strong> and trackbacks are <strong>disabled</strong> <a href="#" onclick="Element.toggle('conversation'); return false">Change</a>
+      +      <ul class='inputs-list' id='conversation' style='display: none'>
+      +        <li>
+      +          <label for="article_allow_pings">
+      +            <input name="article[allow_pings]" type="hidden" value="0" /><input id="article_allow_pings" name="article[allow_pings]" type="checkbox" value="1" />
+      +            Allow trackbacks
+      +          </label>
+      +        </li>
+      +        <li>
+      +          <label for="article_allow_comments">
+      +            <input name="article[allow_comments]" type="hidden" value="0" /><input checked="checked" id="article_allow_comments" name="article[allow_comments]" type="checkbox" value="1" />
+      +            Allow comments
+      +          </label>
+      +        </li>
+      +      </ul>
+      +    </div>
+      +	  <div class='clearfix'>
+      +      Publish <strong>now</strong> <a href="#" onclick="Element.toggle('publish'); return false">Change</a>
+      +      <ul class='inputs-list'>
+      +        <li id='publish' style='display: none;'>
+      +          <input class="span3" id="article_published_at" name="article[published_at]" size="30" type="text" value="August 21, 2013 10:20 AM GMT+0000 (UTC)" /> <img alt="Calendar" class="calendar_date_select_popup_icon" onclick="new CalendarDateSelect( $(this).previous(), {time:true, year_range:10} );" src="/images/calendar_date_select/calendar.gif?1377080279" style="border:0px; cursor:pointer;" />
+      +        </li>
+      +      </ul>
+      +    </div>
+      +    <div class='clearfix'>
+      +      Visibility: <strong>public</strong> <a href="#" onclick="Element.toggle('visibility'); return false">Change</a>
+      +      <ul class='inputs-list' id='visibility' style='display: none'>
+      +        <li>
+      +          <label for="article_password">Password:
+      +            <input class="span3" id="article_password" name="article[password]" size="30" type="password" value="" />
+      +          </label>
+      +        </li>
+      +      </ul>
+      +    </div>
+      +    <div class='clearfix'>
+      +      Permalink: <a href="#" onclick="Element.toggle('permalink'); return false">Change</a>
+      +      <ul class='inputs-list' id='permalink' style='display: none'>
+      +        <li>
+      +            <input class="span4" id="article_permalink" name="article[permalink]" size="30" type="text" value="cs169-autograder-blag-post-b" />
+      +        </li>
+      +      </ul>
+      +    </div>
+      +    <div class='clearfix'>
+      +      Article filter: <strong>Markdown with SmartyPants</strong> <a href="#" onclick="Element.toggle('text_filter'); return false">Change</a>
+      +      <ul id='text_filter' class='inputs-list' style='display: none'>
+      +        <li>
+      +          <select name="article[text_filter]" id="text_filter">
+      +            <option value="none">None</option>
+      +<option value="markdown">Markdown</option>
+      +<option value="smartypants">SmartyPants</option>
+      +<option value="markdown smartypants" selected="selected">Markdown with SmartyPants</option>
+      +<option value="textile">Textile</option>
+      +<option value="none">None</option>
+      +<option value="markdown">Markdown</option>
+      +<option value="smartypants">SmartyPants</option>
+      +<option value="markdown smartypants" selected="selected">Markdown with SmartyPants</option>
+      +<option value="textile">Textile</option>
+      +          </select>
+      +        </li>
+      +      </ul>
+      +    </div>
+      +
+      +    <div class='actions'>
+      +      <input id='save_draft' type="submit" value="Save as draft" name="article[draft]" class='btn info' />
+      +      <input type="submit" value="Publish" class="btn primary" />
+      +    </div>
+      +  </div>
+      +
+      +  <div class='well'>
+      +    <h4>Categories</h4>
+      +    <ul class='inputs-list'>
+      +	<li>
+      +	    <label for="category_1"><input id="category_1" name="categories[]" type="checkbox" value="1" />General</label>
+      +	</li>
+      +</ul>
+      +<a href="/admin/categories/new" class="btn info">New Category</a>
+      +
+      +  </div>
+      +  <input id="article_post_type" name="article[post_type]" type="hidden" value="read" />
+      +</div>
+      +
+      +<div class='editor-left'>
+      +  <div>
+      +    <div>
+      +      <input class="span1" id="article_title" name="article[title]" placeholder="Title" size="30" style=" width: 99%" type="text" value="[CS169 Autograder] Blag Post B" />
+      +    </div>
+      +
+      +    
+      +
+      +    <div id='editor-menu'>
+      +		<ul class="tabs">
+      +			<li id="f" class='active'>
+      +				<a href="#" onclick="new Ajax.Updater(&#x27;visual_editor&#x27;, &#x27;/admin/content/insert_editor?editor=visual&#x27;, {asynchronous:true, evalScripts:true, onLoading:function(request){new Element.show(&#x27;update_spinner_fck&#x27;)}, onSuccess:function(request){new Element.toggle(&#x27;update_spinner_fck&#x27;)}, parameters:&#x27;authenticity_token=&#x27; + encodeURIComponent(&#x27;8NTFrJATsniGQZ/cti1SiB/pW7gWuEfH2XxBaUK5pok=&#x27;)}); return false;">Visual</a><img alt="Spinner-blue" id="update_spinner_fck" src="/images/spinner-blue.gif?1377080279" style="display:none;" />
+      +			</li>
+      +			<li id="s" class=' '>
+      +				<a href="#" onclick="new Ajax.Updater(&#x27;simple_editor&#x27;, &#x27;/admin/content/insert_editor?editor=simple&#x27;, {asynchronous:true, evalScripts:true, onLoading:function(request){new Element.show(&#x27;update_spinner_simple&#x27;)}, onSuccess:function(request){new Element.toggle(&#x27;update_spinner_simple&#x27;)}, parameters:&#x27;authenticity_token=&#x27; + encodeURIComponent(&#x27;8NTFrJATsniGQZ/cti1SiB/pW7gWuEfH2XxBaUK5pok=&#x27;)}); return false;">HTML</a><img alt="Spinner-blue" id="update_spinner_simple" src="/images/spinner-blue.gif?1377080279" style="display:none;" />
+      +			</li>
+      +		</ul>
+      +    </div>
+      +
+      +    <div id="editor">
+      +      <div id='quicktags' style='display: none;'>
+      +        <script type="text/javascript">edToolbar('article_body_and_extended');</script>
+      +      </div>
+      +
+      +      <div id ='visual_editor'  >
+      +        <textarea id='article__body_and_extended_editor' style='width:100%;height:300px' cols='20' rows='20' class='large' name='article[body_and_extended]'>Lorem ipsum dolor sit amet</textarea>
+      +<script type="text/javascript">
+      +//<![CDATA[
+      +CKEDITOR.replace('article[body_and_extended]', {
+      +    filebrowserBrowseUrl : '/fm/filemanager',
+      +    filebrowserUploadUrl : '/ckeditor/upload'
+      +
+      +});
+      +
+      +//]]>
+      +</script>
+      +      </div>
+      +
+      +      <div id='simple_editor' class='input_text' style='display: none;' >
+      +        
+      +        
+      +      </div>
+      +    </div>
+      +
+      +		<h4>Tags</h4>
+      +    <div class='class'>
+      +      <input autocomplete="off" id="article_keywords" name="article[keywords]" size="30" style="width: 100%" type="text" value="" />
+      +    </div>
+      +    <script type="text/javascript">
+      +//<![CDATA[
+      +var article_keywords_auto_completer = new Ajax.Autocompleter('article_keywords', 'article_keywords_auto_complete', '/admin/content/auto_complete_for_article_keywords', {tokens:','})
+      +//]]>
+      +</script>		
+      +  </div>
+      +
+      +  <div class='separator'>
+      +    <h4>Excerpt</h4>
+      +    <div class=''>
+      +      <textarea cols="40" height="150" id="article_excerpt" name="article[excerpt]" rows="5" style="width: 100%"></textarea>
+      +      <span class='help-block'>Excerpts are posts summaries that are shown on your blog homepage only but won’t appear on the post itself</span>
+      +    </div>
+      +  </div>
+      +
+      +  <div class=''>
+      +    <h4>Uploads</h4>
+      +    <p class='help-block'>Uploads will be displayed as attachments in your RSS feed, but won't appear in your articles.</p>
+      +    <ul id='attachments' class='inputs-list'>
+      +      <li id="attachment_1">
+      +  <input id="attachments_filename_1" name="attachments[filename_1]" type="file" />  <a href="#" onclick="if (confirm(_(&#x27;Really delete attachment&#x27;) +&#x27; 1?&#x27;)){
+      +Effect.toggle(&quot;attachment_1&quot;,&#x27;appear&#x27;,{afterFinish:function(obj){Element.remove(obj.element);}});
+      +}; return false;">Remove</a></li>
+      +<li id="attachment_add_2">
+      +  <a href="#" onclick="new Ajax.Request(&#x27;/admin/content/attachment_box_add/2&#x27;, {asynchronous:true, evalScripts:true, parameters:&#x27;authenticity_token=&#x27; + encodeURIComponent(&#x27;8NTFrJATsniGQZ/cti1SiB/pW7gWuEfH2XxBaUK5pok=&#x27;)}); return false;">Add Another Attachment</a></li>
+      +
+      +<li id="resources">
+      +
+      +  <h3>You can associate the following resources</h3>
+      +</li>
+      +    </ul>
+      +  </div>    
+      +  </div>
+      +
+      +</div>
+      +
+      +
+      +
+      +</form><h3>
+      +	Merge Articles
+      +</h3>
+      + <form accept-charset="UTF-8" action="/admin/content/merge_with/156" id="merge_with" method="post" name="merge_with"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="8NTFrJATsniGQZ/cti1SiB/pW7gWuEfH2XxBaUK5pok=" /></div>
+      + 	<label for="merge_with_Article Id">Article id</label>
+      + 	<input type="text" name="merge_with" >
+      + 	<!-- <input id="content_merge_with_id" name="merge_with" size="30" type="text" /> -->
+      + 	</br>
+      + <input name="commit" type="submit" value="Merge" />
+      +
+      +      </div>
+      +    </div>
+      +  </div>
+      +
+      +  <footer>
+      +    <a href="http://dry-fortress-6025.herokuapp.com">169yfractal</a> is proudly powered by Typo 6.1.0
+      +  </footer>
+      +</body>
+      +</html>
+    # /tmp/rspec20130821-21936-9qchaj.rb:286:in `block (2 levels) in <top (required)>'
+    # /tmp/rspec20130821-21936-9qchaj.rb:9:in `block (3 levels) in <top (required)>'
+    # /tmp/rspec20130821-21936-9qchaj.rb:8:in `block (2 levels) in <top (required)>'
+    # lib/graders/rspec_grader/rspec_sandbox.rb:9:in `block (3 levels) in <top (required)>'
+    # lib/graders/rspec_grader/rspec_sandbox.rb:8:in `block (2 levels) in <top (required)>'
+    # lib/graders/rspec_grader/rspec_runner.rb:42:in `block in run_rspec'
+    # lib/graders/rspec_grader/rspec_runner.rb:33:in `run_rspec'
+    # lib/graders/rspec_grader/rspec_runner.rb:24:in `run'
+    # lib/graders/rspec_grader/weighted_rspec_grader.rb:6:in `grade!'
+    # ./lib/graders/rspec_grader/heroku_rspec_grader.rb:11:in `grade!'
+    # lib/graders/rspec_grader/hw5_grader.rb:13:in `grade!'
+    # ./grade5:37:in `<main>'
