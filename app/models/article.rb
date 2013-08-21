@@ -502,6 +502,7 @@ class Article < Content
     end
     a.save!
     merge_a.delete
+    merge_with_a.delete
     return a
   end
 end

@@ -644,6 +644,7 @@ describe Article do
       @c2.article = @a2
       @c2.save!
 
+      a1_id = @a1.id
       r = Article.merge_with(@a1.id,@a2.id)
       r.title.should == @a1.title
       r.body.should =~ /b1/
@@ -652,6 +653,7 @@ describe Article do
       # should be replace
       r.comments[0].title.should == "c1"
       r.comments[1].title.should == "c2"
+      lambda{Article.find(a1_id)}.should raise_error(ActiveRecord::RecordNotFound)
     end
   end
 end
