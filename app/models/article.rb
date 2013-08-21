@@ -471,11 +471,14 @@ class Article < Content
     merge_a = Article.find(merge_id)
     merge_with_a = Article.find(merged_id)
     author = merge_a.author
+
+    merge_a.body ||= ""
+    merge_with_a.body ||=  ""
+
     body = merge_a.body + "\n" + merge_with_a.body
     body = merge_a.body.to_s + "\n" +  merge_with_a.body
     
     comments = []
-
     merge_a.comments.each do |c|
       comments << c.clone
     end
@@ -484,6 +487,11 @@ class Article < Content
       comments << c.clone
     end
 
-    a = Article.create!(:author => author,:body => body,:title => merge_a.title,:comments => comments )
+    # raise comments.inspect
+    if comments == []
+      a = Article.create!(:author => author,:body => body,:title => merge_a.title)
+    else
+      a = Article.create!(:author => author,:body => body,:title => merge_a.title,:comments => comments)
+    end
   end
 end

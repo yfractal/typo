@@ -6,8 +6,12 @@ class Admin::ContentController < Admin::BaseController
 
   cache_sweeper :blog_sweeper
   def merge_with
-    @article = Article.merge_with(params[:id],params[:content][:merge_with_id])
-    redirect_to @article.short_url
+    @article = Article.merge_with(params[:id],params[:merge_with].to_i)
+    if @article.short_url== nil
+      redirect_to '/admin/content' and return 
+    else
+      redirect_to @article.short_url and return 
+    end
   end
 
 
